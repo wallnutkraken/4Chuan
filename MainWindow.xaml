@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Jackie 4 Chuan" Height="585" Width="525">
     <Grid>
-        
+        <TextBox x:Name="textBlock" HorizontalAlignment="Left" Margin="25,34,0,0" TextWrapping="Wrap" Text="remove" VerticalAlignment="Top" Height="481" Width="465"/>
     </Grid>
 </Window>

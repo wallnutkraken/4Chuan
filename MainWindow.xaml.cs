@@ -23,6 +23,8 @@ namespace Jackie4Chuan
         public MainWindow()
         {
             InitializeComponent();
+
+            textBlock.Text = Controller.GetVgMain();
         }
     }
 }
