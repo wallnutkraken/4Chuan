@@ -29,8 +29,14 @@ namespace Jackie4Chuan
         public void Start()
         {
             FullBoard anime = Controller.GetBoard("a", 1);
-            boardHeader.Content = 
-                "/" + anime.TheBoard.BoardName + "/ - " + anime.TheBoard.Title;
+            boardHeader.Content = anime.BoardName;
+            boardSelect.ItemsSource = Controller.GetAllBoardNames();
+            boardSelect.SelectedItem = anime.BoardName;
+        }
+
+        private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            boardHeader.Content = (string)boardSelect.SelectedItem;
         }
     }
 }

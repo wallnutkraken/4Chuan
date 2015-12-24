@@ -32,6 +32,11 @@ namespace Jackie4Chuan
             return responseJson;
         }
 
+        public List<Board> GetAllBoards()
+        {
+            return Chan.GetBoard().Boards;
+        }
+
         /// <summary>
         /// Gets a list of threads for a page of a board
         /// </summary>
