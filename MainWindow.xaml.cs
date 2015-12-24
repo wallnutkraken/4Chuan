@@ -26,17 +26,30 @@ namespace Jackie4Chuan
             Start();
         }
 
+        FullBoard currentBoard;
+
         public void Start()
         {
-            FullBoard anime = Controller.GetBoard("a", 1);
-            boardHeader.Content = anime.BoardName;
-            boardSelect.ItemsSource = Controller.GetAllBoardNames();
-            boardSelect.SelectedItem = anime.BoardName;
+            currentBoard = Controller.GetBoard("a", 1);
+            Controller.FillBoards();
+            boardSelect.ItemsSource = Controller.GetBoardNames();
+            Update();
+        }
+        
+        private void Update()
+        {
+            boardHeader.Content = Controller.BoardToString(currentBoard.TheBoard);
+            boardSelect.SelectedItem = currentBoard.BoardName;
+
+            ImageSource source = Controller.GetThumbnail(currentBoard.TheBoard.BoardName,
+                currentBoard.Threads[0].Posts[0].FileName);
+            postImage.Source = source;
         }
 
         private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            boardHeader.Content = (string)boardSelect.SelectedItem;
+            currentBoard = Controller.GetFullBoard(Controller.FindBoard((string)boardSelect.SelectedItem), 1);
+            Update();
         }
     }
 }

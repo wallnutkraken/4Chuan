@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http">
       <HintPath>packages\FChan.Library.1.0.6\lib\portable-net45+wp80+win+MonoAndroid10+xamarinios10+MonoTouch10\System.Net.Http.dll</HintPath>
       <Private>True</Private>
@@ -75,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FInfo.cs" />
     <Compile Include="FullBoard.cs" />
     <Compile Include="ReadApi.cs" />
     <Page Include="MainWindow.xaml">
