@@ -8,14 +8,11 @@ namespace Jackie4Chuan
 {
     class Controller
     {
-        private static ReadApi _Reader;
-        public static string GetVgMain()
+        private static ReadApi _Reader = new ReadApi();
+        public static FullBoard GetBoard(string boardName, int pageNumber)
         {
-            if (_Reader == null)
-            {
-                _Reader = new ReadApi();
-            }
-            return _Reader.GetPage("vg");
+            return new FullBoard(
+                _Reader.GetBoard(boardName), _Reader.GetPage(boardName, pageNumber));
         }
     }
 }

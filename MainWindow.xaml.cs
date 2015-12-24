@@ -23,8 +23,14 @@ namespace Jackie4Chuan
         public MainWindow()
         {
             InitializeComponent();
+            Start();
+        }
 
-            textBlock.Text = Controller.GetVgMain();
+        public void Start()
+        {
+            FullBoard anime = Controller.GetBoard("a", 1);
+            boardHeader.Content = 
+                "/" + anime.TheBoard.BoardName + "/ - " + anime.TheBoard.Title;
         }
     }
 }

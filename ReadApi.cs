@@ -5,47 +5,62 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
+using FChan.Library;
 
 namespace Jackie4Chuan
 {
     class ReadApi
     {
-        /// <summary>
-        /// Gets the main page of a specified board from 4chan
-        /// </summary>
-        /// <param name="board">the board you wish to get it from (e.g. a, vg, lit)</param>
-        /// <returns>the JSON response</returns>
-        public string GetPage(string board)
+        private static string UseApi(string get)
         {
-            return GetPage(board, 1);
-        }
-
-        /// <summary>
-        /// Gets a page from 4chan
-        /// </summary>
-        /// <param name="board">the board you wish to get it from (e.g. a, vg, lit)</param>
-        /// <param name="pageNumber">the page number which you want (1 is the main page)</param>
-        /// <returns>the JSON response</returns>
-        public string GetPage(string board, int pageNumber)
-        {
-            string requestUrl = "http://a.4cdn.org/" + board + "/" + pageNumber + ".json";
-            string responseJson = "";
-            WebRequest request = WebRequest.Create(requestUrl);
-
+            WebRequest request = WebRequest.Create(get);
             Stream responseStream = request.GetResponse().GetResponseStream();
-
             StreamReader reader = new StreamReader(responseStream);
+
             string currentLine = "";
+            string responseJson = "";
+
             while (currentLine != null)
             {
                 currentLine = reader.ReadLine();
                 if (currentLine != null)
                 {
-                    responseJson += currentLine + "\n";
+                    responseJson += currentLine;
                 }
             }
 
             return responseJson;
+        }
+
+        /// <summary>
+        /// Gets a list of threads for a page of a board
+        /// </summary>
+        /// <param name="board">board short name (a, g, vg)</param>
+        /// <param name="page">page number (1 is the main index)</param>
+        public List<FChan.Library.Thread> GetPage(string board, int page)
+        {
+            ThreadRootObject threads = Chan.GetThreadPage(board, page);
+            return threads.Threads;
+        }
+
+        public FChan.Library.Thread GetThread(string board, int threadNumber)
+        {
+            return Chan.GetThread(board, threadNumber);
+        }
+
+        public Board GetBoard(string board)
+        {
+            Board thisBoard = new Board();
+            BoardRootObject allBoards = Chan.GetBoard();
+            foreach (Board entry in allBoards.Boards)
+            {
+                if (entry.BoardName == board)
+                {
+                    thisBoard = entry;
+                }
+            }
+
+            return thisBoard;
         }
     }
 }
