@@ -5,6 +5,7 @@ using System.IO;
 using FChan.Library;
 using System.Drawing;
 using System.Windows.Media.Imaging;
+using System.Text.RegularExpressions;
 
 namespace Jackie4Chuan
 {
@@ -26,8 +27,7 @@ namespace Jackie4Chuan
             List<Board> allBoards = _Reader.GetAllBoards();
             foreach (Board entry in allBoards)
             {
-                string header = BoardToString(entry);
-                FInfo.AllBoards.Add(header, entry);
+                FInfo.AllBoards.Add(entry.ToString(), entry);
             }
         }
 
@@ -41,6 +41,39 @@ namespace Jackie4Chuan
             return new List<string>(FInfo.AllBoards.Keys);
         }
 
+        public static string ShortenByWord(int maxCharacters, string original)
+        {
+            string[] words = original.Split(' ');
+
+            bool done = false;
+            string returnStr = "";
+            for (int i = 0; done == false && i < words.Length; i++)
+            {
+                if ((returnStr + words[i] + 1).Length <= maxCharacters)
+                {
+                    returnStr += words[i] + " ";
+                }
+                else
+                {
+                    done = true;
+                }
+            }
+
+            return returnStr;
+        }
+
+        public static string UnHtml(string original)
+        {
+            if (original.StartsWith("<"))
+            {
+                return Regex.Replace(original, "<.*?>", String.Empty);
+            }
+            else
+            {
+                return original;
+            }
+        }
+
         public static Board FindBoard(string name)
         {
             return FInfo.AllBoards[name];
@@ -49,6 +82,12 @@ namespace Jackie4Chuan
         public static BitmapImage GetThumbnail(string boardName, long imageId)
         {
             string imageUrl = "https://i.4cdn.org/" + boardName + "/" + imageId + "s.jpg";
+            return new BitmapImage(new Uri(imageUrl));
+        }
+
+        public static BitmapImage GetFullImage(string boardName, string imageName)
+        {
+            string imageUrl = "https://i.4cdn.org/" + boardName + "/" + imageName;
             return new BitmapImage(new Uri(imageUrl));
         }
 

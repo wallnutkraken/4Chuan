@@ -44,12 +44,37 @@ namespace Jackie4Chuan
             ImageSource source = Controller.GetThumbnail(currentBoard.TheBoard.BoardName,
                 currentBoard.Threads[0].Posts[0].FileName);
             postImage.Source = source;
+
+            string content = "[" + currentBoard.Threads[0].Posts[0].Name + "] ";
+            if (currentBoard.Threads[0].Posts[0].Subject != null)
+            {
+                content += currentBoard.Threads[0].Posts[0].Subject;
+            }
+
+            postName.Content = content;
+            postContent.Text = Controller.ShortenByWord(140, Controller.UnHtml(currentBoard.Threads[0].Posts[0].Comment));
+            postNumber.Content = currentBoard.Threads[0].Posts[0].PostNumber;
+        }
+
+        private void image_ShowImage(object sender, MouseButtonEventArgs args)
+        {
+            Image imageWindow = new Image(currentBoard);
+            
         }
 
         private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             currentBoard = Controller.GetFullBoard(Controller.FindBoard((string)boardSelect.SelectedItem), 1);
             Update();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
