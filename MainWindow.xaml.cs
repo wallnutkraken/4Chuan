@@ -30,41 +30,36 @@ namespace Jackie4Chuan
 
         public void Start()
         {
-            currentBoard = Controller.GetBoard("a", 1);
             Controller.FillBoards();
+            currentBoard = Controller.GetBoard("a", 1);
             boardSelect.ItemsSource = Controller.GetBoardNames();
+            boardSelect.SelectedItem = currentBoard;
             Update();
         }
-        
+
         private void Update()
         {
-            boardHeader.Content = Controller.BoardToString(currentBoard.TheBoard);
-            boardSelect.SelectedItem = currentBoard.BoardName;
+            boardHeader.Content = currentBoard.Board.ToString();
+            FChan.Library.Post firstPost = currentBoard.Threads[0].Posts[0];
 
-            ImageSource source = Controller.GetThumbnail(currentBoard.TheBoard.BoardName,
-                currentBoard.Threads[0].Posts[0].FileName);
-            postImage.Source = source;
-
-            string content = "[" + currentBoard.Threads[0].Posts[0].Name + "] ";
-            if (currentBoard.Threads[0].Posts[0].Subject != null)
+            if (currentBoard.Threads[0].Posts[0].HasImage)
             {
-                content += currentBoard.Threads[0].Posts[0].Subject;
+                post_Image.Source = Controller.GetThumbnail(currentBoard.Board.BoardName,
+                    currentBoard.Threads[0].Posts[0].FileName);
             }
-
-            postName.Content = content;
-            postContent.Text = Controller.ShortenByWord(140, Controller.UnHtml(currentBoard.Threads[0].Posts[0].Comment));
-            postNumber.Content = currentBoard.Threads[0].Posts[0].PostNumber;
+            post_Name.Content = "[" + firstPost.Name + "] " + firstPost.Subject;
+            post_No.Content = firstPost.PostNumber.ToString();
+            post_Comment.Text = Controller.ShortenByWord(140, Controller.EscapeComment(firstPost.Comment));
         }
 
         private void image_ShowImage(object sender, MouseButtonEventArgs args)
         {
             Image imageWindow = new Image(currentBoard);
-            
         }
 
         private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            currentBoard = Controller.GetFullBoard(Controller.FindBoard((string)boardSelect.SelectedItem), 1);
+            currentBoard = Controller.GetFullBoard((FChan.Library.Board)boardSelect.SelectedItem, 1);
             Update();
         }
 

@@ -6,6 +6,6 @@ namespace Jackie4Chuan
 {
     static class FInfo
     {
-        public static Dictionary<string, Board> AllBoards = new Dictionary<string, Board>();
+        public static List<Board> AllBoards { get; set; }
     }
 }

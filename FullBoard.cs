@@ -5,18 +5,15 @@ namespace Jackie4Chuan
 {
     class FullBoard
     {
-        private Board _TheBoard;
+        private Board _Board;
         private List<FChan.Library.Thread> _Threads;
-        private string _BoardName;
-        public Board TheBoard { get { return _TheBoard; } }
+        public Board Board { get { return _Board; } }
         public List<FChan.Library.Thread> Threads { get { return _Threads; } }
-        public string BoardName { get { return _BoardName; } }
 
         public FullBoard(Board board, List<FChan.Library.Thread> threads)
         {
-            _TheBoard = board;
+            _Board = board;
             _Threads = threads;
-            _BoardName = "/" + board.BoardName + "/ - " + board.Title;
         }
     }
 }

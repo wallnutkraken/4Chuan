@@ -66,10 +66,6 @@
     <Compile Include="Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReadApi.cs" />
-    <Compile Include="ThreadSmall.xaml.cs">
-      <DependentUpon>ThreadSmall.xaml</DependentUpon>
-    </Compile>
     <Page Include="Image.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,10 +83,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ThreadSmall.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -35,7 +35,7 @@ namespace Jackie4Chuan
             this.image.Height = (double)Board.Threads[0].Posts[0].ImageHeight;
             this.image.Width = (double)Board.Threads[0].Posts[0].ImageWidth;
             string imagename = Board.Threads[0].Posts[0].FileName + Board.Threads[0].Posts[0].FileExtension;
-            ImageSource source = Controller.GetFullImage(Board.TheBoard.BoardName,
+            ImageSource source = Controller.GetFullImage(Board.Board.BoardName,
                 imagename);
             this.image.Source = source;
             this.Title = imagename;
@@ -57,7 +57,7 @@ namespace Jackie4Chuan
             if (result == true)
             {
                 System.Net.WebClient webClient = new System.Net.WebClient();
-                webClient.DownloadFile("https://i.4cdn.org/" + Board.TheBoard.BoardName + "/" +
+                webClient.DownloadFile("https://i.4cdn.org/" + Board.Board.BoardName + "/" +
                     Board.Threads[0].Posts[0].FileName + Board.Threads[0].Posts[0].FileExtension, save.FileName);
             }
         }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
-using System.IO;
 using FChan.Library;
 using System.Drawing;
 using System.Windows.Media.Imaging;
@@ -9,26 +8,25 @@ using System.Text.RegularExpressions;
 
 namespace Jackie4Chuan
 {
-    class Controller
+    static class Controller
     {
-        public static string BoardToString(Board board)
-        {
-            return "/" + board.BoardName + "/ - " + board.Title;
-        }
 
-        private static ReadApi _Reader = new ReadApi();
         public static FullBoard GetBoard(string boardName, int pageNumber)
         {
-            return new FullBoard(
-                _Reader.GetBoard(boardName), _Reader.GetPage(boardName, pageNumber));
+            foreach (Board board in FInfo.AllBoards)
+            {
+                if (board.BoardName == boardName)
+                {
+                    return new FullBoard(board, Chan.GetThreadPage(boardName, pageNumber).Threads);
+                }
+            }
+
+            throw new KeyNotFoundException("Board not found. What the fuck happened?!");
+            /* Hopefully the line above never runs */
         }
         public static void FillBoards()
-        {
-            List<Board> allBoards = _Reader.GetAllBoards();
-            foreach (Board entry in allBoards)
-            {
-                FInfo.AllBoards.Add(entry.ToString(), entry);
-            }
+        { 
+            FInfo.AllBoards = Chan.GetBoard().Boards;
         }
 
         public static FullBoard GetFullBoard(Board board, int page)
@@ -36,9 +34,10 @@ namespace Jackie4Chuan
             return new FullBoard(board, Chan.GetThreadPage(board.BoardName, page).Threads);
         }
 
-        public static List<string> GetBoardNames()
+        public static List<Board> GetBoardNames()
         {
-            return new List<string>(FInfo.AllBoards.Keys);
+            return FInfo.AllBoards;
+            /* Woo! Not jumping layers! */
         }
 
         public static string ShortenByWord(int maxCharacters, string original)
@@ -62,6 +61,11 @@ namespace Jackie4Chuan
             return returnStr;
         }
 
+        public static string EscapeComment(string comment)
+        {
+            return WebUtility.HtmlDecode(comment);
+        }
+
         public static string UnHtml(string original)
         {
             if (original.StartsWith("<"))
@@ -76,7 +80,15 @@ namespace Jackie4Chuan
 
         public static Board FindBoard(string name)
         {
-            return FInfo.AllBoards[name];
+            foreach (Board board in FInfo.AllBoards)
+            {
+                if (board.ToString() == name)
+                {
+                    return board;
+                }
+            }
+            throw new KeyNotFoundException("Board not found. What the fuck happened?!");
+            /* Hopefully the line above never runs */
         }
 
         public static BitmapImage GetThumbnail(string boardName, long imageId)
