@@ -26,8 +26,9 @@ namespace Jackie4Chuan
             InitializeComponent();
         }
 
-        public PostWithImage(FChan.Library.Post post) : this()
+        public PostWithImage(FChan.Library.Post post, string namesp) : this()
         {
+            //this.Name = namesp;
             ImagePost = post;
             image.Source = Controller.GetThumbnail(post.Board, post.FileName);
             name.Content = "[" + post.Name + "] " + post.Subject;
