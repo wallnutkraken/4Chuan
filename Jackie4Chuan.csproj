@@ -64,11 +64,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FInfo.cs" />
     <Compile Include="FullBoard.cs" />
     <Compile Include="Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Image.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,7 +140,7 @@
     <None Include="Assets\LogoLicense.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\4Chuan_Logo.png" />
+    <Resource Include="Assets\4Chuan_Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\4Chuan_Icon.ico" />
