@@ -65,6 +65,15 @@ namespace Jackie4Chuan
                     griderino.Children.Add(image);
                     count += 120;
                 }
+                else
+                {
+                    PostWithoutImage image = new PostWithoutImage(currentBoard.Threads[threadNumber].Posts[i]);
+                    image.HorizontalAlignment = HorizontalAlignment.Left;
+                    image.Margin = new Thickness(10, count, 0, 0);
+                    image.VerticalAlignment = VerticalAlignment.Top;
+                    griderino.Children.Add(image);
+                    count += 120;
+                }
             }
         }
 
