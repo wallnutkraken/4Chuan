@@ -26,7 +26,7 @@ namespace Jackie4Chuan
 
         private void github_Click(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.github.com/wallnutkraken/");
+            System.Diagnostics.Process.Start("https://github.com/wallnutkraken/4Chuan");
         }
     }
 }
