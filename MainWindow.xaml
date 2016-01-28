@@ -14,6 +14,7 @@
         <Label x:Name="post_Name" Content="[Anonymous] Subject" HorizontalAlignment="Left" Margin="115,100,0,0" VerticalAlignment="Top" Width="305"/>
         <Label x:Name="post_No" Content="154677" FontWeight="Bold" HorizontalAlignment="Left" Margin="425,100,0,0" VerticalAlignment="Top" Width="82"/>
         <TextBlock x:Name="post_Comment" Background="LightBlue" HorizontalAlignment="Left" Margin="115,131,0,0" TextWrapping="Wrap" Text="Waaah!" VerticalAlignment="Top" Height="69" Width="392"/>
+        <Button x:Name="AboutButton" Content="About" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.2,0.25" Click="AboutButton_Click"/>
 
     </Grid>
 </Window>
