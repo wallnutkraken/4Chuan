@@ -63,7 +63,10 @@ namespace Jackie4Chuan
 
         public static string EscapeComment(string comment)
         {
-            return WebUtility.HtmlDecode(comment);
+            string newstr = WebUtility.HtmlDecode(comment);
+            newstr = newstr.Replace("<br>", "\n");
+            /* Note to self: make <span class = "quote"> green */
+            return newstr;
         }
 
         public static string UnHtml(string original)

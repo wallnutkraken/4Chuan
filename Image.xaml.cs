@@ -25,17 +25,16 @@ namespace Jackie4Chuan
             InitializeComponent();
         }
 
-        internal Image(FullBoard currentBoard)
+        internal Image(FChan.Library.Post post)
         {
             InitializeComponent();
-            Board = currentBoard;
 
-            this.Width = (double)Board.Threads[0].Posts[0].ImageWidth;
-            this.Height = (double)Board.Threads[0].Posts[0].ImageHeight;
-            this.image.Height = (double)Board.Threads[0].Posts[0].ImageHeight;
-            this.image.Width = (double)Board.Threads[0].Posts[0].ImageWidth;
-            string imagename = Board.Threads[0].Posts[0].FileName + Board.Threads[0].Posts[0].FileExtension;
-            ImageSource source = Controller.GetFullImage(Board.Board.BoardName,
+            this.Width = (double)post.ImageWidth;
+            this.Height = (double)post.ImageHeight;
+            this.image.Height = (double)post.ImageHeight;
+            this.image.Width = (double)post.ImageWidth;
+            string imagename = post.FileName + post.FileExtension;
+            ImageSource source = Controller.GetFullImage(post.Board,
                 imagename);
             this.image.Source = source;
             this.Title = imagename;

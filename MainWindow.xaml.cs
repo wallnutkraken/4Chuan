@@ -27,25 +27,26 @@ namespace Jackie4Chuan
         }
 
         FullBoard currentBoard;
+        Int32 threadNumber = 0;
 
         public void Start()
         {
             Controller.FillBoards();
             currentBoard = Controller.GetBoard("a", 1);
             boardSelect.ItemsSource = Controller.GetBoardNames();
-            boardSelect.SelectedItem = currentBoard;
+            boardSelect.Text = currentBoard.Board.ToString();
             Update();
         }
 
         private void Update()
         {
             boardHeader.Content = currentBoard.Board.ToString();
-            FChan.Library.Post firstPost = currentBoard.Threads[0].Posts[0];
+            FChan.Library.Post firstPost = currentBoard.Threads[threadNumber].Posts[0];
 
-            if (currentBoard.Threads[0].Posts[0].HasImage)
+            if (currentBoard.Threads[threadNumber].Posts[0].HasImage)
             {
                 post_Image.Source = Controller.GetThumbnail(currentBoard.Board.BoardName,
-                    currentBoard.Threads[0].Posts[0].FileName);
+                    currentBoard.Threads[threadNumber].Posts[0].FileName);
             }
             post_Name.Content = "[" + firstPost.Name + "] " + firstPost.Subject;
             post_No.Content = firstPost.PostNumber.ToString();
@@ -54,17 +55,13 @@ namespace Jackie4Chuan
 
         private void image_ShowImage(object sender, MouseButtonEventArgs args)
         {
-            Image imageWindow = new Image(currentBoard);
+            Image imageWindow = new Image(currentBoard.Threads[threadNumber].Posts[0]);
         }
 
         private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             currentBoard = Controller.GetFullBoard((FChan.Library.Board)boardSelect.SelectedItem, 1);
             Update();
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
