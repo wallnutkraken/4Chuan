@@ -58,7 +58,7 @@ namespace Jackie4Chuan
             {
                 if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
                 {
-                    PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i], i.ToString());
+                    PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
                     image.HorizontalAlignment = HorizontalAlignment.Left;
                     image.Margin = new Thickness(10, count, 0, 0);
                     image.VerticalAlignment = VerticalAlignment.Top;
