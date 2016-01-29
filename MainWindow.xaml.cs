@@ -54,7 +54,7 @@ namespace Jackie4Chuan
 
             int num = currentBoard.Threads[threadNumber].Posts.Count;
             int count = 205;
-            for (int i = 1; i < 5 && i < num; i++)
+            for (int i = 1; i < 4 && i < num; i++)
             {
                 if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
                 {
