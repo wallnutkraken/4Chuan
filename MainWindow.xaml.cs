@@ -98,5 +98,11 @@ namespace Jackie4Chuan
             About ab = new About();
             ab.Show();
         }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            currentBoard = Controller.GetBoard(currentBoard.Board.BoardName, 1);
+            Update();
+        }
     }
 }

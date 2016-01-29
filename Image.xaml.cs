@@ -19,7 +19,7 @@ namespace Jackie4Chuan
     /// </summary>
     public partial class Image : Window
     {
-        private FullBoard Board { get; set; }
+        private FChan.Library.Post Post; 
         public Image()
         {
             InitializeComponent();
@@ -28,13 +28,14 @@ namespace Jackie4Chuan
         internal Image(FChan.Library.Post post)
         {
             InitializeComponent();
+            Post = post;
 
-            this.Width = (double)post.ImageWidth;
-            this.Height = (double)post.ImageHeight;
-            this.image.Height = (double)post.ImageHeight;
-            this.image.Width = (double)post.ImageWidth;
-            string imagename = post.FileName + post.FileExtension;
-            ImageSource source = Controller.GetFullImage(post.Board,
+            this.Width = (double)Post.ImageWidth;
+            this.Height = (double)Post.ImageHeight;
+            this.image.Height = (double)Post.ImageHeight;
+            this.image.Width = (double)Post.ImageWidth;
+            string imagename = Post.FileName + Post.FileExtension;
+            ImageSource source = Controller.GetFullImage(Post.Board,
                 imagename);
             this.image.Source = source;
             this.Title = imagename;
@@ -49,15 +50,15 @@ namespace Jackie4Chuan
         private void image_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             Microsoft.Win32.SaveFileDialog save = new Microsoft.Win32.SaveFileDialog();
-            save.DefaultExt = Board.Threads[0].Posts[0].FileExtension;
-            save.FileName = Board.Threads[0].Posts[0].OriginalFileName;
+            save.DefaultExt = Post.FileExtension;
+            save.FileName = Post.OriginalFileName;
 
             bool? result = save.ShowDialog();
             if (result == true)
             {
                 System.Net.WebClient webClient = new System.Net.WebClient();
-                webClient.DownloadFile("https://i.4cdn.org/" + Board.Board.BoardName + "/" +
-                    Board.Threads[0].Posts[0].FileName + Board.Threads[0].Posts[0].FileExtension, save.FileName);
+                webClient.DownloadFile("https://i.4cdn.org/" + Post.Board + "/" +
+                    Post.FileName + Post.FileExtension, save.FileName);
             }
         }
     }

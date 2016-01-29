@@ -15,6 +15,7 @@
         <Label x:Name="post_No" Content="154677" FontWeight="Bold" HorizontalAlignment="Left" Margin="425,100,0,0" VerticalAlignment="Top" Width="82"/>
         <TextBlock x:Name="post_Comment" Background="LightBlue" HorizontalAlignment="Left" Margin="115,131,0,0" TextWrapping="Wrap" Text="Waaah!" VerticalAlignment="Top" Height="69" Width="392"/>
         <Button x:Name="AboutButton" Content="About" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.2,0.25" Click="AboutButton_Click"/>
+        <Button x:Name="RefreshButton" Content="Refresh" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="RefreshButton_Click"/>
 
     </Grid>
 </Window>
