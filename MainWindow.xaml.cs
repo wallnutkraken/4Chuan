@@ -63,7 +63,6 @@ namespace Jackie4Chuan
                     image.Margin = new Thickness(10, count, 0, 0);
                     image.VerticalAlignment = VerticalAlignment.Top;
                     griderino.Children.Add(image);
-                    count += 120;
                 }
                 else
                 {
@@ -72,8 +71,8 @@ namespace Jackie4Chuan
                     image.Margin = new Thickness(10, count, 0, 0);
                     image.VerticalAlignment = VerticalAlignment.Top;
                     griderino.Children.Add(image);
-                    count += 120;
                 }
+                count += 105;
             }
         }
 
