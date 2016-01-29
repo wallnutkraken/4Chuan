@@ -103,5 +103,10 @@ namespace Jackie4Chuan
             currentBoard = Controller.GetBoard(currentBoard.Board.BoardName, 1);
             Update();
         }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(new NotImplementedException().Message);
+        }
     }
 }
