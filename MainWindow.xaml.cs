@@ -52,29 +52,29 @@ namespace Jackie4Chuan
             post_No.Content = firstPost.PostNumber.ToString();
             post_Comment.Text = Controller.ShortenByWord(140, Controller.EscapeComment(firstPost.Comment));
 
-            //int num = currentBoard.Threads[threadNumber].Posts.Count;
-            //int count = 205 + 120;
-            //for (int i = 1; i < 5 && i < num; i++)
-            //{
-            //    if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
-            //    {
-            //        PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
-            //        image.HorizontalAlignment = HorizontalAlignment.Left;
-            //        image.Margin = new Thickness(10, count, 0, 0);
-            //        image.VerticalAlignment = VerticalAlignment.Top;
-            //        griderino.Children.Add(image);
-            //        count += 120;
-            //    }
-            //    else
-            //    {
-            //        PostWithoutImage image = new PostWithoutImage(currentBoard.Threads[threadNumber].Posts[i]);
-            //        image.HorizontalAlignment = HorizontalAlignment.Left;
-            //        image.Margin = new Thickness(10, count, 0, 0);
-            //        image.VerticalAlignment = VerticalAlignment.Top;
-            //        griderino.Children.Add(image);
-            //        count += 120;
-            //    }
-            //}
+            int num = currentBoard.Threads[threadNumber].Posts.Count;
+            int count = 205;
+            for (int i = 1; i < 5 && i < num; i++)
+            {
+                if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
+                {
+                    PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
+                    image.HorizontalAlignment = HorizontalAlignment.Left;
+                    image.Margin = new Thickness(10, count, 0, 0);
+                    image.VerticalAlignment = VerticalAlignment.Top;
+                    griderino.Children.Add(image);
+                    count += 120;
+                }
+                else
+                {
+                    PostWithoutImage image = new PostWithoutImage(currentBoard.Threads[threadNumber].Posts[i]);
+                    image.HorizontalAlignment = HorizontalAlignment.Left;
+                    image.Margin = new Thickness(10, count, 0, 0);
+                    image.VerticalAlignment = VerticalAlignment.Top;
+                    griderino.Children.Add(image);
+                    count += 120;
+                }
+            }
         }
 
         private void image_ShowImage(object sender, MouseButtonEventArgs args)
