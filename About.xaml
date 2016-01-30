@@ -10,7 +10,9 @@
     <Grid Background="LightGray">
         <Image x:Name="image" HorizontalAlignment="Left" Height="150" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Source="Assets\4Chuan_Logo.png"/>
         <Label x:Name="title" Content="4Chuan" RenderOptions.BitmapScalingMode="HighQuality" HorizontalContentAlignment="Center" FontWeight="ExtraBold" FontSize="35" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top" Width="150"/>
-        <Button x:Name="github" Content="GitHub" HorizontalAlignment="Center" Margin="0,205,0,0" VerticalAlignment="Top" Width="75" Click="github_Click"/>
+        <Button x:Name="github" Content="GitHub" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Width="75" Click="github_Click"/>
+        <Label x:Name="version" Content="Version" FontWeight="SemiBold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Width="152"/>
+        <Label x:Name="releasename" FontWeight="Bold" FontStyle="Italic" FontSize="16" HorizontalContentAlignment="Center"  Content="Release Name" HorizontalAlignment="Center" Margin="0,178,0,0" VerticalAlignment="Top" Width="172"/>
 
     </Grid>
 </Window>

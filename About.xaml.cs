@@ -22,6 +22,8 @@ namespace Jackie4Chuan
         public About()
         {
             InitializeComponent();
+            version.Content = "Version " + Properties.Settings.Default.Version;
+            releasename.Content = Properties.Settings.Default.ReleaseName;
         }
 
         private void github_Click(object sender, RoutedEventArgs e)

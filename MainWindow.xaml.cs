@@ -175,6 +175,13 @@ namespace Jackie4Chuan
 
         private void UpButton_Click(object sender, RoutedEventArgs e)
         {
+            ThreadUp();
+        }
+        /// <summary>
+        /// Handles user wanting to go up a thread
+        /// </summary>
+        private void ThreadUp()
+        {
             if (threadNumber > 0)
             {
                 threadNumber--;
@@ -182,7 +189,10 @@ namespace Jackie4Chuan
             }
         }
 
-        private void DownButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles user wanting to go down a thread
+        /// </summary>
+        private void ThreadDown()
         {
             if (threadNumber < currentBoard.Threads.Count - 1)
             {
@@ -191,11 +201,28 @@ namespace Jackie4Chuan
             }
         }
 
+        private void DownButton_Click(object sender, RoutedEventArgs e)
+        {
+            ThreadDown();
+        }
+
         private void post_No_MouseUp(object sender, MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("http://boards.4chan.org/" + currentBoard.Board.BoardName + "/thread/" +
                 currentBoard.Threads[threadNumber].Posts[0].PostNumber + "/" + 
                 currentBoard.Threads[threadNumber].Posts[0].ThreadUrlSlug);
+        }
+
+        private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+            {
+                ThreadUp();
+            }
+            else if (e.Delta < 0)
+            {
+                ThreadDown();
+            }
         }
     }
 }
