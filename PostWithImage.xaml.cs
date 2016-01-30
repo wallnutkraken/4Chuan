@@ -32,7 +32,7 @@ namespace Jackie4Chuan
             image.Source = Controller.GetThumbnail(post.Board, post.FileName);
             name.Content = "[" + post.Name + "] " + post.Subject;
             number.Content = post.PostNumber;
-            comment.Text = Controller.ShortenByWord(80, Controller.EscapeComment(post.Comment));
+            comment.Text = Controller.EscapeComment(post.Comment);
         }
 
         private void image_MouseUp(object sender, MouseButtonEventArgs e)

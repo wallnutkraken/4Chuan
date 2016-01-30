@@ -89,7 +89,7 @@ namespace Jackie4Chuan
                 firstPost.Comment = "";
                 /* Denullify comment for OP */
             }
-            post_Comment.Text = Controller.ShortenByWord(140, Controller.EscapeComment(firstPost.Comment));
+            post_Comment.Text = Controller.EscapeComment(firstPost.Comment);
 
             int num = currentBoard.Threads[threadNumber].Posts.Count;
             int count = 205;

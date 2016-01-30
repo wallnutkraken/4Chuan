@@ -29,7 +29,7 @@ namespace Jackie4Chuan
         {
             name.Content = "[" + post.Name + "] " + post.Subject;
             number.Content = post.PostNumber.ToString();
-            comment.Text = Controller.ShortenByWord(80, Controller.EscapeComment(post.Comment));
+            comment.Text = Controller.EscapeComment(post.Comment);
         }
     }
 }

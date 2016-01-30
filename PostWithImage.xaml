@@ -8,9 +8,9 @@
     <Grid Background="#FFD3CAFF" Margin="0,0,0,0">
       
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,5,0,0" VerticalAlignment="Top" Width="100" MouseUp="image_MouseUp"/>
-        <Label x:Name="name" Content="[Anonymous] Subject" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="245"/>
-        <Label x:Name="number" HorizontalContentAlignment="Right" Content="154444" FontWeight="Bold" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="122"/>
-        <TextBlock x:Name="comment" Background="#FFB9ABFF" HorizontalAlignment="Left" Margin="115,41,0,0" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Height="65" Width="372"/>
+        <Label x:Name="name" Content="[Anonymous] Subject" HorizontalAlignment="Left" Margin="115,0,0,0" VerticalAlignment="Top" Width="245"/>
+        <Label x:Name="number" HorizontalContentAlignment="Right" Content="154444" FontWeight="Bold" HorizontalAlignment="Left" Margin="365,0,0,0" VerticalAlignment="Top" Width="122"/>
+        <TextBlock x:Name="comment" Background="#FFB9ABFF" HorizontalAlignment="Left" Margin="115,26,0,0" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Height="65" Width="372"/>
 
 
     </Grid>
