@@ -5,6 +5,7 @@ using FChan.Library;
 using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Text.RegularExpressions;
+using System.Windows.Documents;
 
 namespace Jackie4Chuan
 {
@@ -67,6 +68,79 @@ namespace Jackie4Chuan
             newstr = newstr.Replace("<br>", "\n");
             /* Note to self: make <span class = "quote"> >green */
             return newstr;
+        }
+        
+        /// <summary>
+        /// Takes a string (the comment of a post) and turns it into a list of inline runs to add to a textblock
+        /// </summary>
+        public static List<Run> FormatTextInline(string comment)
+        {
+            string[] lines = comment.Split('\n');
+            List<Run> inlines = new List<Run>();
+            string quoteTag = "<span class=\"quote\">";
+
+            foreach (string line in lines)
+            {
+                if (line.StartsWith(quoteTag))
+                {
+                    string in_line = line.Replace(quoteTag, "").Replace("</span>", "");
+                    inlines.Add(new Run(in_line + "\n") { Foreground = System.Windows.Media.Brushes.DarkGreen });
+                    continue;
+                }
+                else
+                {
+                    inlines.Add(new Run(line + '\n'));
+                }
+
+                /* I'll do this later */
+
+                //else if (line.Contains("<a href=\"#p")) /* this means it's a reply */
+                //{
+                //    for (int i = 0; i < line.Length; i++)
+                //    {
+                //        int beginInd = new int();
+                //        if (i != line.Length - 1) /* Checks if it's not the last char */
+                //        {
+                //            if (line[i] == '<' && line[i + 1] == 'a')
+                //            {
+                //                beginInd = i;
+                //                /* The link begins */
+                //                string tag = "<a";
+                //                bool read = true;
+                //                i += 2; /* because we already read <a */
+                //                while (i < line.Length && read)
+                //                {
+                //                    if (line[i] == '>')
+                //                    {
+                //                        read = false;
+                //                    }
+                //                    tag += line[i];
+                //                    i++;
+                //                }
+                //                inlines.Add(new Run(line.Replace(tag, "").Remove(beginInd) + " "));
+                //                read = true;
+                //                string reply = "";
+                //                while (i != line.Length && read)
+                //                {
+                //                    if (line[i] == '<')
+                //                    {
+                //                        read = false;
+                //                        i--;
+                //                        /* handling text/strings kills me */
+                //                    }
+                //                    else
+                //                    {
+                //                        reply += line[i];
+                //                    }
+                //                    i++;
+                //                }
+                //            }
+                //        }
+                //    }
+                //}
+            }
+
+            return inlines;
         }
 
         public static string UnHtml(string original)

@@ -89,7 +89,12 @@ namespace Jackie4Chuan
                 firstPost.Comment = "";
                 /* Denullify comment for OP */
             }
-            post_Comment.Text = Controller.EscapeComment(firstPost.Comment);
+            List<Run> commentInlines = Controller.FormatTextInline(Controller.EscapeComment(firstPost.Comment));
+            post_Comment.Text = "";
+            foreach (Run entry in commentInlines)
+            {
+                post_Comment.Inlines.Add(entry);
+            }
 
             int num = currentBoard.Threads[threadNumber].Posts.Count;
             int count = 205;
@@ -211,7 +216,7 @@ namespace Jackie4Chuan
         private void post_No_MouseUp(object sender, MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("http://boards.4chan.org/" + currentBoard.Board.BoardName + "/thread/" +
-                currentBoard.Threads[threadNumber].Posts[0].PostNumber + "/" + 
+                currentBoard.Threads[threadNumber].Posts[0].PostNumber + "/" +
                 currentBoard.Threads[threadNumber].Posts[0].ThreadUrlSlug);
         }
 

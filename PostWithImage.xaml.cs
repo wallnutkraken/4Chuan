@@ -32,7 +32,12 @@ namespace Jackie4Chuan
             image.Source = Controller.GetThumbnail(post.Board, post.FileName);
             name.Content = "[" + post.Name + "] " + post.Subject;
             number.Content = post.PostNumber;
-            comment.Text = Controller.EscapeComment(post.Comment);
+            List<Run> commentInlines = Controller.FormatTextInline(Controller.EscapeComment(ImagePost.Comment));
+            comment.Text = "";
+            foreach (Run entry in commentInlines)
+            {
+                comment.Inlines.Add(entry);
+            }
         }
 
         private void image_MouseUp(object sender, MouseButtonEventArgs e)

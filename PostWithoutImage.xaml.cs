@@ -29,7 +29,12 @@ namespace Jackie4Chuan
         {
             name.Content = "[" + post.Name + "] " + post.Subject;
             number.Content = post.PostNumber.ToString();
-            comment.Text = Controller.EscapeComment(post.Comment);
+            List<Run> commentInlines = Controller.FormatTextInline(Controller.EscapeComment(post.Comment));
+            comment.Text = "";
+            foreach (Run entry in commentInlines)
+            {
+                comment.Inlines.Add(entry);
+            }
         }
     }
 }
