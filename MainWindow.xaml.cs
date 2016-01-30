@@ -38,8 +38,42 @@ namespace Jackie4Chuan
             Update();
         }
 
+        /// <summary>
+        /// Clears the posts on screen
+        /// </summary>
+        private void ClearPosts()
+        {
+            List<object> controlsToRemove = new List<object>();
+            foreach (object child in griderino.Children)
+            {
+                if (child is PostWithImage ||
+                    child is PostWithoutImage ||
+                    child is PostOnlyImage)
+                {
+                    controlsToRemove.Add(child);
+                }
+            }
+
+            foreach (object entry in controlsToRemove)
+            {
+                if (entry is PostWithImage)
+                {
+                    griderino.Children.Remove((PostWithImage)entry);
+                }
+                else if (entry is PostWithoutImage)
+                {
+                    griderino.Children.Remove((PostWithoutImage)entry);
+                }
+                else if (entry is PostOnlyImage)
+                {
+                    griderino.Children.Remove((PostOnlyImage)entry);
+                }
+            }
+        }
+
         private void Update()
         {
+            ClearPosts();
             boardHeader.Content = currentBoard.Board.ToString();
             FChan.Library.Post firstPost = currentBoard.Threads[threadNumber].Posts[0];
 
@@ -50,19 +84,35 @@ namespace Jackie4Chuan
             }
             post_Name.Content = "[" + firstPost.Name + "] " + firstPost.Subject;
             post_No.Content = firstPost.PostNumber.ToString();
+            if (firstPost.Comment == null)
+            {
+                firstPost.Comment = "";
+                /* Denullify comment for OP */
+            }
             post_Comment.Text = Controller.ShortenByWord(140, Controller.EscapeComment(firstPost.Comment));
 
             int num = currentBoard.Threads[threadNumber].Posts.Count;
             int count = 205;
             for (int i = 1; i < 4 && i < num; i++)
             {
-                if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
+                if (currentBoard.Threads[threadNumber].Posts[i].HasImage &&
+                    currentBoard.Threads[threadNumber].Posts[i].Comment != null)
                 {
                     PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
                     image.HorizontalAlignment = HorizontalAlignment.Left;
                     image.Margin = new Thickness(10, count, 0, 0);
                     image.VerticalAlignment = VerticalAlignment.Top;
                     griderino.Children.Add(image);
+                    count += (int)image.Height;
+                }
+                else if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
+                {
+                    PostOnlyImage image = new PostOnlyImage(currentBoard.Threads[threadNumber].Posts[i]);
+                    image.HorizontalAlignment = HorizontalAlignment.Left;
+                    image.Margin = new Thickness(10, count, 0, 0);
+                    image.VerticalAlignment = VerticalAlignment.Top;
+                    griderino.Children.Add(image);
+                    count += (int)image.Height;
                 }
                 else
                 {
@@ -71,8 +121,8 @@ namespace Jackie4Chuan
                     image.Margin = new Thickness(10, count, 0, 0);
                     image.VerticalAlignment = VerticalAlignment.Top;
                     griderino.Children.Add(image);
+                    count += (int)image.Height;
                 }
-                count += 105;
             }
         }
 
