@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Jackie4Chuan"
-             mc:Ignorable="d" d:DesignWidth="497" Height="120">
-    <Grid Margin="10,0,0,0" Background="Lavender">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" MouseUp="image_MouseUp"/>
+             mc:Ignorable="d" d:DesignWidth="497" Height="110">
+    <Grid Background="#FFD3CAFF" Margin="0,0,0,0">
+      
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" Margin="10,5,0,0" VerticalAlignment="Top" Width="100" MouseUp="image_MouseUp"/>
         <Label x:Name="name" Content="[Anonymous] Subject" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="245"/>
-        <Label x:Name="number" Content="154444" FontWeight="Bold" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock x:Name="comment" Background="LightGoldenrodYellow" HorizontalAlignment="Left" Margin="115,41,0,0" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Height="69" Width="350"/>
+        <Label x:Name="number" HorizontalContentAlignment="Right" Content="154444" FontWeight="Bold" HorizontalAlignment="Left" Margin="365,10,0,0" VerticalAlignment="Top" Width="122"/>
+        <TextBlock x:Name="comment" Background="#FFB9ABFF" HorizontalAlignment="Left" Margin="115,41,0,0" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Height="65" Width="372"/>
 
 
     </Grid>
