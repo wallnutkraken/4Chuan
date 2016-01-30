@@ -154,11 +154,16 @@ namespace Jackie4Chuan
             ab.Show();
         }
 
-        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        private void RefreshBoard()
         {
             currentBoard = Controller.GetBoard(currentBoard.Board.BoardName, 1);
             threadNumber = 0;
             Update();
+        }
+
+        private void RefreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            RefreshBoard();
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
@@ -177,6 +182,10 @@ namespace Jackie4Chuan
             {
                 threadNumber++;
                 Update();
+            }
+            else if (e.Key == Key.R)
+            {
+                RefreshBoard();
             }
         }
 
