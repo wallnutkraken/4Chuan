@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="Image" Height="300" Width="300">
-    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden">
+    <ScrollViewer Name="scr" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden">
         <Image x:Name="image" MouseLeftButtonUp="image_MouseUp" MouseRightButtonUp="image_MouseRightButtonUp" HorizontalAlignment="Center" Height="1" VerticalAlignment="Center" Width="1"/>
     </ScrollViewer>
 
