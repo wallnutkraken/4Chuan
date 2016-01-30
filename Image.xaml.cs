@@ -35,6 +35,7 @@ namespace Jackie4Chuan
             if (Post.ImageWidth >= System.Windows.SystemParameters.PrimaryScreenWidth)
             {
                 scr.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
+                WindowState = WindowState.Maximized;
             }
             this.image.Height = (double)Post.ImageHeight;
             this.image.Width = (double)Post.ImageWidth;

@@ -134,6 +134,7 @@ namespace Jackie4Chuan
         private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             currentBoard = Controller.GetFullBoard((FChan.Library.Board)boardSelect.SelectedItem, 1);
+            threadNumber = 0;
             Update();
         }
 
@@ -151,6 +152,7 @@ namespace Jackie4Chuan
         private void RefreshButton_Click(object sender, RoutedEventArgs e)
         {
             currentBoard = Controller.GetBoard(currentBoard.Board.BoardName, 1);
+            threadNumber = 0;
             Update();
         }
 
