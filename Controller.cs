@@ -65,7 +65,7 @@ namespace Jackie4Chuan
         {
             string newstr = WebUtility.HtmlDecode(comment);
             newstr = newstr.Replace("<br>", "\n");
-            /* Note to self: make <span class = "quote"> green */
+            /* Note to self: make <span class = "quote"> >green */
             return newstr;
         }
 
