@@ -158,5 +158,44 @@ namespace Jackie4Chuan
         {
             MessageBox.Show(new NotImplementedException().Message);
         }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up && threadNumber > 0)
+            {
+                threadNumber--;
+                Update();
+            }
+            else if (e.Key == Key.Down && threadNumber < currentBoard.Threads.Count - 1)
+            {
+                threadNumber++;
+                Update();
+            }
+        }
+
+        private void UpButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (threadNumber > 0)
+            {
+                threadNumber--;
+                Update();
+            }
+        }
+
+        private void DownButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (threadNumber < currentBoard.Threads.Count - 1)
+            {
+                threadNumber++;
+                Update();
+            }
+        }
+
+        private void post_No_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://boards.4chan.org/" + currentBoard.Board.BoardName + "/thread/" +
+                currentBoard.Threads[threadNumber].Posts[0].PostNumber + "/" + 
+                currentBoard.Threads[threadNumber].Posts[0].ThreadUrlSlug);
+        }
     }
 }

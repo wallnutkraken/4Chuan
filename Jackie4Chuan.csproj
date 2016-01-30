@@ -171,6 +171,10 @@
   <ItemGroup>
     <Resource Include="Assets\Icons\wrench-2x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\down.png" />
+    <Resource Include="Assets\Icons\up.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

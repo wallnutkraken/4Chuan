@@ -19,7 +19,7 @@ namespace Jackie4Chuan
     /// </summary>
     public partial class Image : Window
     {
-        private FChan.Library.Post Post; 
+        private FChan.Library.Post Post;
         public Image()
         {
             InitializeComponent();
@@ -30,9 +30,9 @@ namespace Jackie4Chuan
             InitializeComponent();
             Post = post;
 
-            this.Width = (double)Post.ImageWidth;
-            this.Height = (double)Post.ImageHeight;
-            if (Height >= System.Windows.SystemParameters.PrimaryScreenWidth)
+            this.Width = (double)Post.ImageWidth + 10;
+            this.Height = (double)Post.ImageHeight + 10;
+            if (Post.ImageWidth >= System.Windows.SystemParameters.PrimaryScreenWidth)
             {
                 scr.HorizontalScrollBarVisibility = ScrollBarVisibility.Visible;
             }

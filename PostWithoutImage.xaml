@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Jackie4Chuan"
              mc:Ignorable="d" 
              d:DesignWidth="497" Height="105">
-    <Grid Background="#FFD3CAFF">
+    <Grid Background="#FFD3CAFF" Margin="0,0,0,0">
         <Label x:Name="name" Content="[Anonymous] Subject" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400"/>
         <Label x:Name="number" Content="8468444" FontWeight="Bold" HorizontalAlignment="Left" Margin="405,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.184,-0.231" Width="82"/>
         <TextBlock x:Name="comment" HorizontalAlignment="Left" Margin="8,31,0,0" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Height="69" Width="477" Background="#FFB9ABFF"/>
