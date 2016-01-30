@@ -42,6 +42,7 @@ namespace Jackie4Chuan
             string imagename = Post.FileName + Post.FileExtension;
             ImageSource source = Controller.GetFullImage(Post.Board,
                 imagename);
+            image.HorizontalAlignment = HorizontalAlignment.Left;
             this.image.Source = source;
             this.Title = imagename;
             this.Show();
