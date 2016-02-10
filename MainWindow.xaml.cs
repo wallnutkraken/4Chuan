@@ -75,12 +75,6 @@ namespace Jackie4Chuan
                 }
             }
         }
-
-        private void image_ShowImage(object sender, MouseButtonEventArgs args)
-        {
-            Image imageWindow = new Image(currentBoard.Threads[threadNumber].Posts[0]);
-        }
-
         private void boardSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             currentBoard = Controller.GetFullBoard((FChan.Library.Board)boardSelect.SelectedItem, 1);
