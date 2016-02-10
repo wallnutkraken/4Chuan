@@ -28,6 +28,7 @@ namespace Jackie4Chuan
 
         IFullBoard currentBoard;
         Int32 threadNumber = 0;
+        Int32 pageNumber = 0;
 
         public void Start()
         {
@@ -35,6 +36,8 @@ namespace Jackie4Chuan
             currentBoard = Controller.GetBoard("a", 1);
             boardSelect.ItemsSource = Controller.GetBoardNames();
             boardSelect.Text = currentBoard.Board.ToString();
+            pageNo.ItemsSource = Controller.CountUpTo(currentBoard.Board.Pages);
+            pageNo.SelectedIndex = pageNumber;
             Update();
         }
 
@@ -55,6 +58,8 @@ namespace Jackie4Chuan
         private void Update()
         {
             ClearPosts();
+            pageNo.ItemsSource = Controller.CountUpTo(currentBoard.Board.Pages);
+
             boardHeader.Content = currentBoard.Board.ToString();
             FChan.Library.Post currentOp = currentBoard.Threads[threadNumber].Posts[0];
 
@@ -179,6 +184,12 @@ namespace Jackie4Chuan
             {
                 ThreadDown();
             }
+        }
+
+        private void pageNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            currentBoard = Controller.GetBoard(currentBoard.Board.BoardName, (int)pageNo.SelectedItem);
+            Update();
         }
     }
 }

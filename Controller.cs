@@ -62,6 +62,18 @@ namespace Jackie4Chuan
             return returnStr;
         }
 
+        public static List<int> CountUpTo(int count)
+        {
+            List<int> list = new List<int>();
+            int id = 1;
+            while (id <= count)
+            {
+                list.Add(id);
+                id++;
+            }
+            return list;
+        }
+
         private static void EscapeComment(ref string comment)
         {
             comment = WebUtility.HtmlDecode(comment);
