@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Jackie4Chuan
 {
-    class FullBoard
+    class FullBoard : IFullBoard
     {
         private Board _Board;
         private List<FChan.Library.Thread> _Threads;
