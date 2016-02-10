@@ -73,62 +73,62 @@ namespace Jackie4Chuan
 
         private void Update()
         {
-            ClearPosts();
-            boardHeader.Content = currentBoard.Board.ToString();
-            FChan.Library.Post firstPost = currentBoard.Threads[threadNumber].Posts[0];
+            //ClearPosts();
+            //boardHeader.Content = currentBoard.Board.ToString();
+            //FChan.Library.Post firstPost = currentBoard.Threads[threadNumber].Posts[0];
 
-            if (currentBoard.Threads[threadNumber].Posts[0].HasImage)
-            {
-                post_Image.Source = Controller.GetThumbnail(currentBoard.Board.BoardName,
-                    currentBoard.Threads[threadNumber].Posts[0].FileName);
-            }
-            post_Name.Content = "[" + firstPost.Name + "] " + firstPost.Subject;
-            post_No.Content = firstPost.PostNumber.ToString();
-            if (firstPost.Comment == null)
-            {
-                firstPost.Comment = "";
-                /* Denullify comment for OP */
-            }
-            List<Run> commentInlines = Controller.FormatTextInline(Controller.EscapeComment(firstPost.Comment));
-            post_Comment.Text = "";
-            foreach (Run entry in commentInlines)
-            {
-                post_Comment.Inlines.Add(entry);
-            }
+            ////if (currentBoard.Threads[threadNumber].Posts[0].HasImage)
+            ////{
+            ////    post_Image.Source = Controller.GetThumbnail(currentBoard.Board.BoardName,
+            ////        currentBoard.Threads[threadNumber].Posts[0].FileName);
+            ////}
+            ////post_Name.Content = "[" + firstPost.Name + "] " + firstPost.Subject;
+            ////post_No.Content = firstPost.PostNumber.ToString();
+            ////if (firstPost.Comment == null)
+            ////{
+            ////    firstPost.Comment = "";
+            ////    /* Denullify comment for OP */
+            ////}
+            ////List<Run> commentInlines = Controller.FormatTextInline(Controller.EscapeComment(firstPost.Comment));
+            ////post_Comment.Text = "";
+            ////foreach (Run entry in commentInlines)
+            ////{
+            ////    post_Comment.Inlines.Add(entry);
+            ////}
 
-            int num = currentBoard.Threads[threadNumber].Posts.Count;
-            int count = 205;
-            for (int i = 1; i < 4 && i < num; i++)
-            {
-                if (currentBoard.Threads[threadNumber].Posts[i].HasImage &&
-                    currentBoard.Threads[threadNumber].Posts[i].Comment != null)
-                {
-                    PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
-                    image.HorizontalAlignment = HorizontalAlignment.Left;
-                    image.Margin = new Thickness(10, count, 0, 0);
-                    image.VerticalAlignment = VerticalAlignment.Top;
-                    griderino.Children.Add(image);
-                    count += (int)image.Height;
-                }
-                else if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
-                {
-                    PostOnlyImage image = new PostOnlyImage(currentBoard.Threads[threadNumber].Posts[i]);
-                    image.HorizontalAlignment = HorizontalAlignment.Left;
-                    image.Margin = new Thickness(10, count, 0, 0);
-                    image.VerticalAlignment = VerticalAlignment.Top;
-                    griderino.Children.Add(image);
-                    count += (int)image.Height;
-                }
-                else
-                {
-                    PostWithoutImage image = new PostWithoutImage(currentBoard.Threads[threadNumber].Posts[i]);
-                    image.HorizontalAlignment = HorizontalAlignment.Left;
-                    image.Margin = new Thickness(10, count, 0, 0);
-                    image.VerticalAlignment = VerticalAlignment.Top;
-                    griderino.Children.Add(image);
-                    count += (int)image.Height;
-                }
-            }
+            //int num = currentBoard.Threads[threadNumber].Posts.Count;
+            //int count = 205;
+            //for (int i = 1; i < 4 && i < num; i++)
+            //{
+            //    if (currentBoard.Threads[threadNumber].Posts[i].HasImage &&
+            //        currentBoard.Threads[threadNumber].Posts[i].Comment != null)
+            //    {
+            //        PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
+            //        image.HorizontalAlignment = HorizontalAlignment.Left;
+            //        image.Margin = new Thickness(10, count, 0, 0);
+            //        image.VerticalAlignment = VerticalAlignment.Top;
+            //        griderino.Children.Add(image);
+            //        count += (int)image.Height;
+            //    }
+            //    else if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
+            //    {
+            //        PostOnlyImage image = new PostOnlyImage(currentBoard.Threads[threadNumber].Posts[i]);
+            //        image.HorizontalAlignment = HorizontalAlignment.Left;
+            //        image.Margin = new Thickness(10, count, 0, 0);
+            //        image.VerticalAlignment = VerticalAlignment.Top;
+            //        griderino.Children.Add(image);
+            //        count += (int)image.Height;
+            //    }
+            //    else
+            //    {
+            //        PostWithoutImage image = new PostWithoutImage(currentBoard.Threads[threadNumber].Posts[i]);
+            //        image.HorizontalAlignment = HorizontalAlignment.Left;
+            //        image.Margin = new Thickness(10, count, 0, 0);
+            //        image.VerticalAlignment = VerticalAlignment.Top;
+            //        griderino.Children.Add(image);
+            //        count += (int)image.Height;
+            //    }
+            //}
         }
 
         private void image_ShowImage(object sender, MouseButtonEventArgs args)

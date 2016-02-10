@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Jackie4Chuan"
         mc:Ignorable="d"
         Title="4Chuan" Height="585" Width="525"
-        Closing="Window_Closing" ResizeMode="CanMinimize"
+        Closing="Window_Closing" ResizeMode="CanResizeWithGrip"
         Keyboard.KeyUp="Window_KeyUp"
         Mouse.MouseWheel="Window_MouseWheel">
 
@@ -20,17 +20,13 @@
     </Window.Resources>
 
     <Grid x:Name="griderino">
-        <Label x:Name="boardHeader" FontSize="25" Content="/æ/ - Placeholder" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Height="60" Width="517"/>
+        <Label x:Name="boardHeader" FontSize="25" Content="/æ/ - Placeholder" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Height="60"/>
         <ComboBox x:Name="boardSelect" HorizontalAlignment="Right" Margin="0,8,10,0" VerticalAlignment="Top" Width="190" SelectionChanged="boardSelect_SelectionChanged"/>
-        <Image x:Name="post_Image" HorizontalAlignment="Left" Height="100" Margin="10,100,0,0" VerticalAlignment="Top" Width="100" Mouse.MouseUp="image_ShowImage"/>
-        <Label x:Name="post_Name" Content="[Anonymous] Subject" HorizontalAlignment="Left" Margin="115,100,0,0" VerticalAlignment="Top" Width="285"/>
-        <Label x:Name="post_No" Mouse.MouseUp="post_No_MouseUp" BorderBrush="Black" BorderThickness="1" ToolTip="Clicking on this opens the thread in your browser." HorizontalContentAlignment="Right" Content="154677" FontWeight="Bold" HorizontalAlignment="Left" Margin="405,100,0,0" VerticalAlignment="Top" Width="90" Background="#FFDDDDDD"/>
-        <TextBlock x:Name="post_Comment" Background="#FFD3CAFF" HorizontalAlignment="Left" Margin="115,131,0,0" TextWrapping="Wrap" Text="Comment" VerticalAlignment="Top" Height="69" Width="380"/>
         <Button x:Name="AboutButton" ToolTip="About" Content="{StaticResource about_icon}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="0.2,0.25" Click="AboutButton_Click" Height="20"/>
         <Button x:Name="RefreshButton" Content="{StaticResource refresh_icon}" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="20" Click="RefreshButton_Click" ToolTip="Refreshes the current board." Height="20"/>
         <Button x:Name="SettingsButton" ToolTip="Settings" Content="{StaticResource settings_icon}" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="20" Height="20" Click="SettingsButton_Click"/>
-        <Button x:Name="UpButton" ToolTip="Shows the previous thread in the board" Content="{StaticResource up_icon}" HorizontalAlignment="Left" Margin="285,10,0,0" VerticalAlignment="Top" Width="20" Click="UpButton_Click" Height="20" RenderTransformOrigin="2.5,0.75" Background="#FF68F761"/>
-        <Button x:Name="DownButton" ToolTip="Shows the next thread in the board" Content="{StaticResource down_icon}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="260,10,0,0" Click="DownButton_Click" Height="20" RenderTransformOrigin="4.5,0.5" Background="#FF68F761"/>
-
+        <Button x:Name="UpButton" ToolTip="Shows the previous thread in the board" Content="{StaticResource up_icon}" HorizontalAlignment="Right" Margin="0,10,210,0" VerticalAlignment="Top" Width="20" Click="UpButton_Click" Height="20" RenderTransformOrigin="2.5,0.75" Background="#FF68F761"/>
+        <Button x:Name="DownButton" ToolTip="Shows the next thread in the board" Content="{StaticResource down_icon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Margin="0,10,235,0" Click="DownButton_Click" Height="20" RenderTransformOrigin="4.5,0.5" Background="#FF68F761"/>
+        <StackPanel Name="postStackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,95,0,0"/>
     </Grid>
 </Window>
