@@ -167,12 +167,6 @@ namespace Jackie4Chuan
             ThreadDown();
         }
 
-        private void post_No_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            System.Diagnostics.Process.Start("http://boards.4chan.org/" + currentBoard.Board.BoardName + "/thread/" +
-                currentBoard.Threads[threadNumber].Posts[0].PostNumber + "/" +
-                currentBoard.Threads[threadNumber].Posts[0].ThreadUrlSlug);
-        }
 
         private void Window_MouseWheel(object sender, MouseWheelEventArgs e)
         {
