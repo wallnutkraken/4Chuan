@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="FInfo.cs" />
     <Compile Include="FullBoard.cs" />
+    <Compile Include="IFullBoard.cs" />
     <Compile Include="Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
@@ -94,6 +95,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PostOnlyImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,6 +113,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OP.xaml.cs">
+      <DependentUpon>OP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PostOnlyImage.xaml.cs">
       <DependentUpon>PostOnlyImage.xaml</DependentUpon>
     </Compile>

@@ -24,5 +24,10 @@ namespace Jackie4Chuan
         {
             InitializeComponent();
         }
+
+        private void image_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

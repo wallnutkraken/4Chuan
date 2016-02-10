@@ -5,8 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Jackie4Chuan"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="120" d:DesignWidth="525">
+    <Grid Background="#FFD3CAFF">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" MouseUp="image_MouseUp"/>
+        <Label x:Name="name" HorizontalAlignment="Left" Content="Anonymous [Subject]" Margin="100,0,0,0" Height="26" VerticalAlignment="Top"/>
+        <Label x:Name="number" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top" Height="26" Width="80" Content="454648777" FontWeight="Bold"/>
+        <TextBlock x:Name="comment" HorizontalAlignment="Stretch" Margin="105,26,0,0" VerticalAlignment="Stretch"/>
+
     </Grid>
 </UserControl>
