@@ -12,7 +12,7 @@ namespace Jackie4Chuan
     static class Controller
     {
 
-        public static FullBoard GetBoard(string boardName, int pageNumber)
+        public static IFullBoard GetBoard(string boardName, int pageNumber)
         {
             foreach (Board board in FInfo.AllBoards)
             {
@@ -62,12 +62,11 @@ namespace Jackie4Chuan
             return returnStr;
         }
 
-        public static string EscapeComment(string comment)
+        private static void EscapeComment(ref string comment)
         {
-            string newstr = WebUtility.HtmlDecode(comment);
-            newstr = newstr.Replace("<br>", "\n");
+            comment = WebUtility.HtmlDecode(comment);
+            comment = comment.Replace("<br>", "\n").Replace("<wbr>", "");
             /* Note to self: make <span class = "quote"> >green */
-            return newstr;
         }
         
         /// <summary>
@@ -75,6 +74,13 @@ namespace Jackie4Chuan
         /// </summary>
         public static List<Run> FormatTextInline(string comment)
         {
+            if (comment == null)
+            {
+                List<Run> empty = new List<Run>();
+                empty.Add(new Run(""));
+                return empty;
+            }
+            EscapeComment(ref comment);
             string[] lines = comment.Split('\n');
             List<Run> inlines = new List<Run>();
             string quoteTag = "<span class=\"quote\">";

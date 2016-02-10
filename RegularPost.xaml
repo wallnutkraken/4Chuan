@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="Jackie4Chuan.RegularPost"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Jackie4Chuan"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="525">
+    <Grid Background="#FFD3CAFF">
+            <Image Name="image" Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" MouseUp="image_MouseUp"/>
+            <Label x:Name="name" Margin="100,0,0,0" HorizontalAlignment="Left" Content="Anonymous [Subject]" Height="26" VerticalAlignment="Top"/>
+            <Label x:Name="number" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Background="#FFD3CAFF" Height="26" VerticalAlignment="Top" FontWeight="Bold" Content="[54654687]"/>
+            <TextBlock x:Name="comment" Background="#FFB9ABFF" HorizontalAlignment="Stretch" Margin="100,26,0,0"/>
+    </Grid>
+</UserControl>

@@ -9,8 +9,8 @@
     <Grid Background="#FFD3CAFF">
         <Image x:Name="image" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" MouseUp="image_MouseUp"/>
         <Label x:Name="name" HorizontalAlignment="Left" Content="Anonymous [Subject]" Margin="100,0,0,0" Height="26" VerticalAlignment="Top"/>
-        <Label x:Name="number" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top" Height="26" Width="80" Content="454648777" FontWeight="Bold"/>
-        <TextBlock x:Name="comment" HorizontalAlignment="Stretch" Margin="105,26,0,0" VerticalAlignment="Stretch"/>
+        <Label x:Name="number" Background="#FFD3CAFF" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top" Height="26" Width="80" Content="454648777" FontWeight="Bold"/>
+        <TextBlock x:Name="comment" TextWrapping="Wrap" Background="#FFB9ABFF" HorizontalAlignment="Stretch" Margin="105,26,0,0" VerticalAlignment="Stretch"/>
 
     </Grid>
 </UserControl>

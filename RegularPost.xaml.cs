@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FChan.Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -17,25 +18,34 @@ using System.Windows.Shapes;
 namespace Jackie4Chuan
 {
     /// <summary>
-    /// Interaction logic for OP.xaml
+    /// Interaction logic for RegularPost.xaml
     /// </summary>
-    public partial class OP : UserControl
+    public partial class RegularPost : UserControl
     {
-        public OP()
+        public RegularPost()
         {
             InitializeComponent();
         }
-        private FChan.Library.Post post;
+        private Post post;
 
-        public OP(FChan.Library.Post post) : this()
+        public RegularPost(Post post) : this()
         {
             this.post = post;
-            image.Source = Controller.GetThumbnail(post.Board, post.FileName);
+            if (post.HasImage == false)
+            {
+                image.Height = 0;
+                image.Width = 0;
+                name.Margin = new Thickness(0, 0, 0, 0);
+                comment.Margin = new Thickness(0, 26, 0, 0);
+            }
+            else
+            {
+                image.Source = Controller.GetThumbnail(post.Board, post.FileName);
+            }
             name.Content = WebUtility.HtmlDecode($"[{post.Name}] {post.Subject}");
             number.Content = $"[{post.PostNumber}]";
-            comment.Text = "";
             List<Run> inlines = Controller.FormatTextInline(post.Comment);
-            foreach (Run inline in inlines)
+            foreach(Run inline in inlines)
             {
                 comment.Inlines.Add(inline);
             }

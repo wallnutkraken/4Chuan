@@ -26,7 +26,7 @@ namespace Jackie4Chuan
             Start();
         }
 
-        FullBoard currentBoard;
+        IFullBoard currentBoard;
         Int32 threadNumber = 0;
 
         public void Start()
@@ -43,92 +43,32 @@ namespace Jackie4Chuan
         /// </summary>
         private void ClearPosts()
         {
-            List<object> controlsToRemove = new List<object>();
-            foreach (object child in griderino.Children)
-            {
-                if (child is PostWithImage ||
-                    child is PostWithoutImage ||
-                    child is PostOnlyImage)
-                {
-                    controlsToRemove.Add(child);
-                }
-            }
-
-            foreach (object entry in controlsToRemove)
-            {
-                if (entry is PostWithImage)
-                {
-                    griderino.Children.Remove((PostWithImage)entry);
-                }
-                else if (entry is PostWithoutImage)
-                {
-                    griderino.Children.Remove((PostWithoutImage)entry);
-                }
-                else if (entry is PostOnlyImage)
-                {
-                    griderino.Children.Remove((PostOnlyImage)entry);
-                }
-            }
+            postStackPanel.Children.RemoveRange(0, postStackPanel.Children.Count);
         }
+
+        private void SpawnOp(FChan.Library.Post OP)
+        {
+            Jackie4Chuan.OP opControl = new Jackie4Chuan.OP(OP);
+            postStackPanel.Children.Add(opControl);
+        } 
 
         private void Update()
         {
-            //ClearPosts();
-            //boardHeader.Content = currentBoard.Board.ToString();
-            //FChan.Library.Post firstPost = currentBoard.Threads[threadNumber].Posts[0];
+            ClearPosts();
+            boardHeader.Content = currentBoard.Board.ToString();
+            FChan.Library.Post currentOp = currentBoard.Threads[threadNumber].Posts[0];
 
-            ////if (currentBoard.Threads[threadNumber].Posts[0].HasImage)
-            ////{
-            ////    post_Image.Source = Controller.GetThumbnail(currentBoard.Board.BoardName,
-            ////        currentBoard.Threads[threadNumber].Posts[0].FileName);
-            ////}
-            ////post_Name.Content = "[" + firstPost.Name + "] " + firstPost.Subject;
-            ////post_No.Content = firstPost.PostNumber.ToString();
-            ////if (firstPost.Comment == null)
-            ////{
-            ////    firstPost.Comment = "";
-            ////    /* Denullify comment for OP */
-            ////}
-            ////List<Run> commentInlines = Controller.FormatTextInline(Controller.EscapeComment(firstPost.Comment));
-            ////post_Comment.Text = "";
-            ////foreach (Run entry in commentInlines)
-            ////{
-            ////    post_Comment.Inlines.Add(entry);
-            ////}
+            SpawnOp(currentOp);
 
-            //int num = currentBoard.Threads[threadNumber].Posts.Count;
-            //int count = 205;
-            //for (int i = 1; i < 4 && i < num; i++)
-            //{
-            //    if (currentBoard.Threads[threadNumber].Posts[i].HasImage &&
-            //        currentBoard.Threads[threadNumber].Posts[i].Comment != null)
-            //    {
-            //        PostWithImage image = new PostWithImage(currentBoard.Threads[threadNumber].Posts[i]);
-            //        image.HorizontalAlignment = HorizontalAlignment.Left;
-            //        image.Margin = new Thickness(10, count, 0, 0);
-            //        image.VerticalAlignment = VerticalAlignment.Top;
-            //        griderino.Children.Add(image);
-            //        count += (int)image.Height;
-            //    }
-            //    else if (currentBoard.Threads[threadNumber].Posts[i].HasImage)
-            //    {
-            //        PostOnlyImage image = new PostOnlyImage(currentBoard.Threads[threadNumber].Posts[i]);
-            //        image.HorizontalAlignment = HorizontalAlignment.Left;
-            //        image.Margin = new Thickness(10, count, 0, 0);
-            //        image.VerticalAlignment = VerticalAlignment.Top;
-            //        griderino.Children.Add(image);
-            //        count += (int)image.Height;
-            //    }
-            //    else
-            //    {
-            //        PostWithoutImage image = new PostWithoutImage(currentBoard.Threads[threadNumber].Posts[i]);
-            //        image.HorizontalAlignment = HorizontalAlignment.Left;
-            //        image.Margin = new Thickness(10, count, 0, 0);
-            //        image.VerticalAlignment = VerticalAlignment.Top;
-            //        griderino.Children.Add(image);
-            //        count += (int)image.Height;
-            //    }
-            //}
+            if (currentBoard.Threads[threadNumber].Posts.Count != 0)
+            {
+                for (int i = 1; i < currentBoard.Threads[threadNumber].Posts.Count; i++)
+                {
+                    RegularPost thisPost = new RegularPost(
+                        currentBoard.Threads[threadNumber].Posts[i]);
+                    postStackPanel.Children.Add(thisPost);
+                }
+            }
         }
 
         private void image_ShowImage(object sender, MouseButtonEventArgs args)

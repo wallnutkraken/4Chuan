@@ -55,7 +55,14 @@ namespace Jackie4Chuan
 
         private void image_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
+            string chuanDir = $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}\\4Chuan";
+            if (System.IO.Directory.Exists(chuanDir) == false)
+            {
+                System.IO.Directory.CreateDirectory(chuanDir);
+            }
+
             Microsoft.Win32.SaveFileDialog save = new Microsoft.Win32.SaveFileDialog();
+            save.InitialDirectory = chuanDir;
             save.DefaultExt = Post.FileExtension;
             save.FileName = Post.OriginalFileName;
 
