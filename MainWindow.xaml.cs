@@ -177,6 +177,7 @@ namespace Jackie4Chuan
         private void pageNo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             currentBoard = Controller.GetBoard(currentBoard.Board.BoardName, (int)pageNo.SelectedItem);
+            threadNumber = 0;
             Update();
         }
     }
