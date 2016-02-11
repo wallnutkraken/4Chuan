@@ -14,5 +14,8 @@
     <Setting Name="RefreshKey" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">61</Value>
     </Setting>
+    <Setting Name="UseVimNavigation" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

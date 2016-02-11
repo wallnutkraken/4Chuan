@@ -64,5 +64,17 @@ namespace Jackie4Chuan.Properties {
                 this["RefreshKey"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseVimNavigation {
+            get {
+                return ((bool)(this["UseVimNavigation"]));
+            }
+            set {
+                this["UseVimNavigation"] = value;
+            }
+        }
     }
 }
