@@ -32,8 +32,9 @@ namespace Jackie4Chuan
 
         public void Start()
         {
+            IntermediateSettingStorage.SetKeyBindings();
             Controller.FillBoards();
-            currentBoard = Controller.GetBoard("a", 1);
+            currentBoard = Controller.GetBoard(Properties.Settings.Default.DefaultBoard, 1);
             boardSelect.ItemsSource = Controller.GetBoardNames();
             boardSelect.Text = currentBoard.Board.ToString();
             pageNo.ItemsSource = Controller.CountUpTo(currentBoard.Board.Pages);
@@ -107,7 +108,10 @@ namespace Jackie4Chuan
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(new NotImplementedException().Message);
+            Settings settings = new Settings();
+            this.IsEnabled = false;
+            settings.Owner = this;
+            settings.Show();
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
@@ -122,7 +126,7 @@ namespace Jackie4Chuan
                 threadNumber++;
                 Update();
             }
-            else if (e.Key == Key.R)
+            else if (e.Key == IntermediateSettingStorage.RefreshKey)
             {
                 RefreshBoard();
             }

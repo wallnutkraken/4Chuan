@@ -6,12 +6,17 @@ using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Text.RegularExpressions;
 using System.Windows.Documents;
+using System.Linq;
 
 namespace Jackie4Chuan
 {
     static class Controller
     {
-
+        public static List<T> EnumToList<T>()
+        {
+            List<T> allEnums = Enum.GetValues(typeof(T)).Cast<T>().ToList();
+            return allEnums;
+        }
         public static IFullBoard GetBoard(string boardName, int pageNumber)
         {
             foreach (Board board in FInfo.AllBoards)

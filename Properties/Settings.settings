@@ -11,5 +11,11 @@
     <Setting Name="ReleaseName" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Emotionless Gulags</Value>
     </Setting>
+    <Setting Name="DefaultBoard" Type="System.String" Scope="User">
+      <Value Profile="(Default)">a</Value>
+    </Setting>
+    <Setting Name="RefreshKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">61</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

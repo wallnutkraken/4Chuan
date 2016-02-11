@@ -52,5 +52,29 @@ namespace Jackie4Chuan.Properties {
                 return ((string)(this["ReleaseName"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("a")]
+        public string DefaultBoard {
+            get {
+                return ((string)(this["DefaultBoard"]));
+            }
+            set {
+                this["DefaultBoard"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("61")]
+        public int RefreshKey {
+            get {
+                return ((int)(this["RefreshKey"]));
+            }
+            set {
+                this["RefreshKey"] = value;
+            }
+        }
     }
 }
