@@ -14,8 +14,17 @@
     <Setting Name="RefreshKey" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">61</Value>
     </Setting>
-    <Setting Name="UseVimNavigation" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+    <Setting Name="UpKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="DownKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">26</Value>
+    </Setting>
+    <Setting Name="LeftKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">23</Value>
+    </Setting>
+    <Setting Name="RightKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">25</Value>
     </Setting>
   </Settings>
 </SettingsFile>

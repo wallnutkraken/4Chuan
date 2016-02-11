@@ -21,6 +21,7 @@ namespace Jackie4Chuan
     public partial class Settings : Window
     {
         private string ChangingKey = null;
+        private const string PressAKey = "-- Press a key --";
         public Settings()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace Jackie4Chuan
                     startingBoardComboBox.SelectedIndex = i;
                 }
             }
-            refreshKeyButton.Content = IntermediateSettingStorage.RefreshKey.ToString();
+            ResetButtonNames();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,8 +54,18 @@ namespace Jackie4Chuan
 
         private void refreshKeyButton_Click(object sender, RoutedEventArgs e)
         {
-            refreshKeyButton.Content = "-- Press a key --";
+            refreshKeyButton.Content = PressAKey;
             ChangingKey = "Refresh";
+        }
+
+        private void ResetButtonNames()
+        {
+            /* Reset key buttons */
+            refreshKeyButton.Content = IntermediateSettingStorage.RefreshKey.ToString();
+            upKeyButton.Content = IntermediateSettingStorage.UpKey.ToString();
+            downKeyButton.Content = IntermediateSettingStorage.DownKey.ToString();
+            leftKeyButton.Content = IntermediateSettingStorage.LeftKey.ToString();
+            rightKeyButton.Content = IntermediateSettingStorage.RightKey.ToString();
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
@@ -65,10 +76,50 @@ namespace Jackie4Chuan
                 {
                     Properties.Settings.Default.RefreshKey = (int)e.Key;
                 }
+                else if (ChangingKey == "Up")
+                {
+                    Properties.Settings.Default.UpKey = (int)e.Key;
+                }
+                else if (ChangingKey == "Down")
+                {
+                    Properties.Settings.Default.DownKey = (int)e.Key;
+                }
+                else if (ChangingKey == "Left")
+                {
+                    Properties.Settings.Default.LeftKey = (int)e.Key;
+                }
+                else if (ChangingKey == "Right")
+                {
+                    Properties.Settings.Default.RightKey = (int)e.Key;
+                }
                 ChangingKey = null;
                 IntermediateSettingStorage.SetKeyBindings();
-                refreshKeyButton.Content = IntermediateSettingStorage.RefreshKey.ToString();
+                ResetButtonNames();
             }
+        }
+
+        private void upKeyButton_Click(object sender, RoutedEventArgs e)
+        {
+            upKeyButton.Content = PressAKey;
+            ChangingKey = "Up";
+        }
+
+        private void downKeyButton_Click(object sender, RoutedEventArgs e)
+        {
+            downKeyButton.Content = PressAKey;
+            ChangingKey = "Down";
+        }
+
+        private void leftKeyButton_Click(object sender, RoutedEventArgs e)
+        {
+            leftKeyButton.Content = PressAKey;
+            ChangingKey = "Left";
+        }
+
+        private void rightKeyButton_Click(object sender, RoutedEventArgs e)
+        {
+            rightKeyButton.Content = PressAKey;
+            ChangingKey = "Right";
         }
     }
 }

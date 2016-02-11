@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:Jackie4Chuan"
         mc:Ignorable="d"
         Title="Settings" Height="300" Width="400"
+        MinHeight="300"
+        MinWidth="400"
         Closing="Window_Closing"
         KeyUp="Window_KeyUp">
     <Grid>
@@ -19,6 +21,17 @@
         <Label Content="Refresh Key (press to change)" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,40,0,0" HorizontalContentAlignment="Center"/>
         <Button Name="refreshKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,40,10,0" Height="20" Click="refreshKeyButton_Click"/>
 
+        <Label Content="Up (Previous Thread)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,70,10,0"/>
+        <Button Name="upKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,70,10,10" Height="20" Click="upKeyButton_Click"/>
+
+        <Label Content="Down (Next Thread)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,100,10,0"/>
+        <Button Name="downKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="20" Margin="10,100,10,10" Click="downKeyButton_Click"/>
+
+        <Label Content="Left (Previous Board)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,130,10,0"/>
+        <Button Name="leftKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="20" Margin="10,130,10,10" Click="leftKeyButton_Click"/>
+
+        <Label Content="Right (Next Board)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,160,10,0"/>
+        <Button Name="rightKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="20" Margin="10,160,10,10" Click="rightKeyButton_Click"/>
 
         <Button Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" Grid.Column="1" Margin="10" Click="Button_Click"/>
     </Grid>

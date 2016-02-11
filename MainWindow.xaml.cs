@@ -116,19 +116,43 @@ namespace Jackie4Chuan
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Up && threadNumber > 0)
+            if (e.Key == IntermediateSettingStorage.UpKey && threadNumber > 0)
             {
                 threadNumber--;
                 Update();
             }
-            else if (e.Key == Key.Down && threadNumber < currentBoard.Threads.Count - 1)
+            else if (e.Key == IntermediateSettingStorage.DownKey && threadNumber < currentBoard.Threads.Count - 1)
             {
                 threadNumber++;
                 Update();
             }
+            else if (e.Key == IntermediateSettingStorage.LeftKey)
+            {
+                TryLastBoard();
+            }
+            else if (e.Key == IntermediateSettingStorage.RightKey)
+            {
+                TryNextBoard();
+            }
             else if (e.Key == IntermediateSettingStorage.RefreshKey)
             {
                 RefreshBoard();
+            }
+        }
+
+        private void TryNextBoard()
+        {
+            if (boardSelect.SelectedIndex < boardSelect.Items.Count - 1)
+            {
+                boardSelect.SelectedIndex++;
+            }
+        }
+
+        private void TryLastBoard()
+        {
+            if (boardSelect.SelectedIndex > 0)
+            {
+                boardSelect.SelectedIndex--;
             }
         }
 

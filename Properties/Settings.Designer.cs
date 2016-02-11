@@ -67,13 +67,49 @@ namespace Jackie4Chuan.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool UseVimNavigation {
+        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        public int UpKey {
             get {
-                return ((bool)(this["UseVimNavigation"]));
+                return ((int)(this["UpKey"]));
             }
             set {
-                this["UseVimNavigation"] = value;
+                this["UpKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("26")]
+        public int DownKey {
+            get {
+                return ((int)(this["DownKey"]));
+            }
+            set {
+                this["DownKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("23")]
+        public int LeftKey {
+            get {
+                return ((int)(this["LeftKey"]));
+            }
+            set {
+                this["LeftKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public int RightKey {
+            get {
+                return ((int)(this["RightKey"]));
+            }
+            set {
+                this["RightKey"] = value;
             }
         }
     }

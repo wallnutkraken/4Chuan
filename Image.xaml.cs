@@ -30,7 +30,7 @@ namespace Jackie4Chuan
             InitializeComponent();
             Post = post;
 
-            this.Width = (double)Post.ImageWidth + 10;
+            this.Width = (double)Post.ImageWidth + 20;
             this.Height = (double)Post.ImageHeight + 10;
             if (Post.ImageWidth >= System.Windows.SystemParameters.PrimaryScreenWidth)
             {
