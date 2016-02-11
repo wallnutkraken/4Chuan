@@ -10,6 +10,6 @@
             <Image Name="image" Height="100" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" MouseUp="image_MouseUp"/>
             <Label x:Name="name" Margin="100,0,0,0" HorizontalAlignment="Left" Content="Anonymous [Subject]" Height="26" VerticalAlignment="Top"/>
             <Label x:Name="number" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Background="#FFD3CAFF" Height="26" VerticalAlignment="Top" FontWeight="Bold" Content="[54654687]"/>
-            <TextBlock x:Name="comment" Background="#FFB9ABFF" HorizontalAlignment="Stretch" Margin="100,26,0,0"/>
+            <TextBlock x:Name="comment" Background="#FFB9ABFF" HorizontalAlignment="Stretch" Margin="100,26,0,0" TextWrapping="Wrap"/>
     </Grid>
 </UserControl>
