@@ -23,7 +23,7 @@
 
     <Grid x:Name="griderino">
         <Label x:Name="boardHeader" FontSize="25" Content="/æ/ - Placeholder" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Height="60"/>
-        <ComboBox x:Name="boardSelect" HorizontalAlignment="Right" Margin="0,8,10,0" VerticalAlignment="Top" Width="190" SelectionChanged="boardSelect_SelectionChanged"/>
+        <ComboBox x:Name="boardSelect" Focusable="False" HorizontalAlignment="Right" Margin="0,8,10,0" VerticalAlignment="Top" Width="190" SelectionChanged="boardSelect_SelectionChanged"/>
         <ComboBox x:Name="pageNo" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="105,10,0,0" SelectionChanged="pageNo_SelectionChanged" ToolTip="Page number."/>
         <Button x:Name="AboutButton" ToolTip="About" Content="{StaticResource about_icon}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="0.2,0.25" Click="AboutButton_Click" Height="20"/>
         <Button x:Name="RefreshButton" Content="{StaticResource refresh_icon}" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Width="20" Click="RefreshButton_Click" ToolTip="Refreshes the current board." Height="20"/>
