@@ -128,11 +128,11 @@ namespace Jackie4Chuan
             }
             else if (e.Key == IntermediateSettingStorage.LeftKey)
             {
-                TryLastBoard();
+                TryPreviousPage();
             }
             else if (e.Key == IntermediateSettingStorage.RightKey)
             {
-                TryNextBoard();
+                TryNextPage();
             }
             else if (e.Key == IntermediateSettingStorage.RefreshKey)
             {
@@ -153,6 +153,22 @@ namespace Jackie4Chuan
             if (boardSelect.SelectedIndex > 0)
             {
                 boardSelect.SelectedIndex--;
+            }
+        }
+
+        private void TryNextPage()
+        {
+            if (pageNo.SelectedIndex < pageNo.Items.Count)
+            {
+                pageNo.SelectedIndex++;
+            }
+        }
+
+        private void TryPreviousPage()
+        {
+            if (pageNo.SelectedIndex > 0)
+            {
+                pageNo.SelectedIndex--;
             }
         }
 

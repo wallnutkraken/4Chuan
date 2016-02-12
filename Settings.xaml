@@ -27,10 +27,10 @@
         <Label Content="Down (Next Thread)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,100,10,0"/>
         <Button Name="downKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="20" Margin="10,100,10,10" Click="downKeyButton_Click"/>
 
-        <Label Content="Left (Previous Board)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,130,10,0"/>
+        <Label Content="Left (Previous Page)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,130,10,0"/>
         <Button Name="leftKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="20" Margin="10,130,10,10" Click="leftKeyButton_Click"/>
 
-        <Label Content="Right (Next Board)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,160,10,0"/>
+        <Label Content="Right (Next Page)" Grid.Column="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" VerticalAlignment="Top" Margin="10,160,10,0"/>
         <Button Name="rightKeyButton" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="20" Margin="10,160,10,10" Click="rightKeyButton_Click"/>
 
         <Button Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="20" Grid.Column="1" Margin="10" Click="Button_Click"/>
