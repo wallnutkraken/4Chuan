@@ -75,6 +75,7 @@
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
     <Compile Include="IntermediateSettingStorage.cs" />
+    <Compile Include="LinkController.cs" />
     <Compile Include="RegularPost.xaml.cs">
       <DependentUpon>RegularPost.xaml</DependentUpon>
     </Compile>

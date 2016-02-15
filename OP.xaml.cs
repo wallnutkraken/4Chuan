@@ -44,13 +44,11 @@ namespace Jackie4Chuan
         private void image_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Image image = new Image(post);
-            image.Show();
         }
 
         private void number_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://boards.4chan.org/" + post.Board + "/thread/" +
-       post.PostNumber + "/" + post.ThreadUrlSlug);
+            LinkController.OpenThread(post);
         }
     }
 }

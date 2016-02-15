@@ -28,6 +28,12 @@ namespace Jackie4Chuan
         internal Image(FChan.Library.Post post)
         {
             InitializeComponent();
+            if (post.FileExtension == ".webm")
+            {
+                MessageBox.Show("Webm playback is currently not supported.", "Webm not supported", MessageBoxButton.OK, MessageBoxImage.Hand);
+                this.Close();
+                return;
+            }
             Post = post;
 
             this.Width = (double)Post.ImageWidth + 20;

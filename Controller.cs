@@ -114,53 +114,6 @@ namespace Jackie4Chuan
                 {
                     inlines.Add(new Run(line + '\n'));
                 }
-
-                /* I'll do this later */
-
-                //else if (line.Contains("<a href=\"#p")) /* this means it's a reply */
-                //{
-                //    for (int i = 0; i < line.Length; i++)
-                //    {
-                //        int beginInd = new int();
-                //        if (i != line.Length - 1) /* Checks if it's not the last char */
-                //        {
-                //            if (line[i] == '<' && line[i + 1] == 'a')
-                //            {
-                //                beginInd = i;
-                //                /* The link begins */
-                //                string tag = "<a";
-                //                bool read = true;
-                //                i += 2; /* because we already read <a */
-                //                while (i < line.Length && read)
-                //                {
-                //                    if (line[i] == '>')
-                //                    {
-                //                        read = false;
-                //                    }
-                //                    tag += line[i];
-                //                    i++;
-                //                }
-                //                inlines.Add(new Run(line.Replace(tag, "").Remove(beginInd) + " "));
-                //                read = true;
-                //                string reply = "";
-                //                while (i != line.Length && read)
-                //                {
-                //                    if (line[i] == '<')
-                //                    {
-                //                        read = false;
-                //                        i--;
-                //                        /* handling text/strings kills me */
-                //                    }
-                //                    else
-                //                    {
-                //                        reply += line[i];
-                //                    }
-                //                    i++;
-                //                }
-                //            }
-                //        }
-                //    }
-                //}
             }
 
             return inlines;
